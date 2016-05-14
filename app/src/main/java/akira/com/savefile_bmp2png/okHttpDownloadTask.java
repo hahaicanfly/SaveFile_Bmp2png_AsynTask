@@ -1,7 +1,11 @@
 package akira.com.savefile_bmp2png;
 
+import android.os.AsyncTask;
+import android.util.Log;
+
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -10,9 +14,11 @@ import okhttp3.Response;
 /**
  * Created by Akira on 2016/5/13.
  */
-public class okHttp {
+public class okHttpDownloadTask {
 
     OkHttpClient client = new OkHttpClient();
+
+
 
     /**Stream
      *
@@ -24,7 +30,7 @@ public class okHttp {
 
         Request request = new Request.Builder().url(Url).build();
         InputStream in = client.newCall(request).execute().body().byteStream();
-
+        Log.i("getInputStream","ok");
         return in;
     }
 
